@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
+import { add } from "../store";
 import ToDo from "../components/ToDo";
 
 function Home({ toDos ,addTodo}) {
@@ -35,7 +35,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addToDo: text => dispatch(actionCreators.addToDo(text)) // ==   store.dispatch(addToDo(text)); 랑 동일. reducer 실행. dispatch를 만들수도 있긴함.
+    // addToDo: text => dispatch(actionCreators.addToDo(text)) // ==   store.dispatch(addToDo(text)); 랑 동일. reducer 실행. dispatch를 만들수도 있긴함.
+    addToDo: text => dispatch(add(text)) // createSlice 
   };
 }
 
